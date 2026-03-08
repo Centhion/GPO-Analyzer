@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft, FileText, Download } from 'lucide-react';
+import { ArrowLeft, FileText } from 'lucide-react';
 
 /**
  * Simple markdown renderer for help documentation.
@@ -143,7 +143,6 @@ export default function HelpPage() {
   const [error, setError] = useState<string | null>(null);
 
   const docPath = `/docs/${docName}.md`;
-  const pdfPath = `/docs/${docName}.pdf`;
 
   useEffect(() => {
     setLoading(true);
@@ -196,17 +195,6 @@ export default function HelpPage() {
             </div>
           </div>
 
-          {/* PDF Download (if exists) */}
-          <a
-            href={pdfPath}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-sm text-gray-500 hover:text-gray-700 flex items-center gap-1 transition-colors"
-            title="Download PDF version"
-          >
-            <Download className="h-4 w-4" />
-            PDF
-          </a>
         </div>
       </div>
 
