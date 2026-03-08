@@ -320,7 +320,6 @@ project/
 │   └── ...
 └── web/
     ├── docker-compose.yml
-    ├── build.sh
     ├── backend/
     │   ├── Dockerfile
     │   └── app/

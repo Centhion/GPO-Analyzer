@@ -461,15 +461,6 @@ Set `AUTH_ENABLED=false` in `.env` (or omit the variable entirely — it default
 
 ## 9. Production Deployment
 
-### Build and Push to Registry
-
-```bash
-cd web
-
-# Build images and push to your container registry
-REGISTRY=your-registry.azurecr.io ./build.sh --push --tag v1.0.0
-```
-
 ### Production Checklist
 
 - [ ] HTML reports mounted or uploaded
