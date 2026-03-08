@@ -1,0 +1,43 @@
+# GPO Analyzer Web - Docker Compose
+# Frontend: HTTP on port 80 (HTTPS handled by Traefik)
+# Backend: Internal only (proxied via nginx)
+#
+# BUILD: docker compose build --no-cache
+# RUN:   docker compose up -d
+#
+# The backbone (gpo_analyzer_v2_3_2.py) is now COPIED into the image.
+# HTML reports are mounted; downloads folder for CLI output with auto-cleanup.
+
+services:
+  backend:
+    build:
+      context: ..                          # Project root
+      dockerfile: web/backend/Dockerfile   # Path from project root
+    container_name: gpo-analyzer-api
+    expose:
+      - "8000"                             # Internal only - accessed via nginx proxy
+    volumes:
+      # Data volumes only - backbone is now in the image
+      - ../html_reports:/app/data/html_reports
+      - ./data/downloads:/app/data/downloads
+      - ./data/logs:/app/data              # Audit log directory
+    environment:
+      - GPO_HTML_FOLDER=/app/data/html_reports
+      - GPO_DOWNLOAD_FOLDER=/app/data/downloads
+      - GPO_AUDIT_LOG_FILE=/app/data/audit.log
+      - GPO_AZURE_TENANT_ID=${AZURE_TENANT_ID:-your-tenant-id}
+      - GPO_AZURE_CLIENT_ID=${AZURE_CLIENT_ID:-your-client-id}
+      - GPO_AUTH_ENABLED=${AUTH_ENABLED:-false}
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        - VITE_AZURE_CLIENT_ID=${AZURE_CLIENT_ID:-your-client-id}
+        - VITE_AZURE_TENANT_ID=${AZURE_TENANT_ID:-your-tenant-id}
+    container_name: gpo-analyzer-ui
+    ports:
+      - "80:80"
+    depends_on:
+      - backend

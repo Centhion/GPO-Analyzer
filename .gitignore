@@ -1,0 +1,40 @@
+# Claude Code artifacts
+.claude/
+CLAUDE.md
+CLAUDE.local.md
+.mcp.json
+skills/
+
+# Python
+.venv/
+venv/
+env/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# PyCharm
+.idea/
+
+# Logs
+*.log
+
+# Output files (Excel reports) - no need to version these
+*.xlsx
+
+# HTML reports - managed via web UI upload, not git
+html_reports/*.html
+
+# Test/temp directories
+test_data/
+outputs/
+temp/
+
+# Environment variables
+.env
+
+# OS files
+.DS_Store
+Thumbs.db

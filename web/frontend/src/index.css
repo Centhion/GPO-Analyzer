@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles */
+body {
+  @apply bg-warm-50 text-gray-800;
+}
+
+/* Data table styles */
+.data-table {
+  @apply w-full border-collapse;
+}
+
+.data-table th {
+  @apply bg-warm-100 text-left p-3 font-semibold border-b-2 border-warm-300 cursor-pointer select-none;
+}
+
+.data-table th:hover {
+  @apply bg-warm-200;
+}
+
+.data-table td {
+  @apply p-3 border-b border-warm-200;
+}
+
+.data-table tr:hover {
+  @apply bg-warm-100;
+}
+
+/* Tab styles */
+.tab-button {
+  @apply px-4 py-2 text-sm font-medium rounded-t-lg transition-colors;
+}
+
+.tab-button.active {
+  @apply bg-white text-primary-700 border-t-2 border-primary-500;
+}
+
+.tab-button:not(.active) {
+  @apply bg-warm-100 text-gray-600 hover:bg-warm-200;
+}
+
+/* Metric card styles */
+.metric-card {
+  @apply bg-white rounded-lg shadow-md p-6 border border-warm-200;
+}
+
+.metric-value {
+  @apply text-3xl font-bold text-primary-600;
+}
+
+.metric-label {
+  @apply text-sm text-gray-600 mt-1;
+}
+
+/* Risk level badges */
+.badge-high {
+  @apply bg-red-100 text-red-800 px-2 py-1 rounded text-sm font-medium;
+}
+
+.badge-medium {
+  @apply bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm font-medium;
+}
+
+.badge-low {
+  @apply bg-green-100 text-green-800 px-2 py-1 rounded text-sm font-medium;
+}
+
+/* Loading spinner */
+.spinner {
+  @apply animate-spin h-8 w-8 border-4 border-primary-200 border-t-primary-600 rounded-full;
+}
+
+/* Side panel slide-in animation */
+@keyframes slide-in-right {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in-right 0.2s ease-out;
+}
+
+/* Clickable table rows */
+.data-table tr.clickable {
+  @apply cursor-pointer;
+}
+
+.data-table tr.clickable:hover {
+  @apply bg-primary-50;
+}
+
+.data-table tr.selected {
+  @apply bg-primary-100 border-l-4 border-primary-500;
+}

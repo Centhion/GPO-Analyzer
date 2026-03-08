@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+ENV/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
+*.log
+logs/
+
+# Data (HTML reports live at project root, not in web/)
+# This gitignore is for the web/ folder
+data/uploads/*
+!data/uploads/.gitkeep
+
+# Environment
+.env
+.env.local
+*.env
+
+# Docker
+.docker/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Node (frontend - Sprint 8)
+node_modules/
+dist/
+build/
+.npm/
+
+# Temp files
+*.tmp
+*.temp
+*.xlsx
