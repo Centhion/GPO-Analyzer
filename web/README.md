@@ -32,7 +32,6 @@ docker compose logs -f
 ```
 web/
 ├── docker-compose.yml      # Container orchestration
-├── docker-compose.prod.yml # Production deployment
 ├── build.sh                # Build helper script
 ├── backend/
 │   ├── Dockerfile          # Copies backbone from project root during build

@@ -92,6 +92,3 @@ fi
 echo ""
 echo "To run locally:"
 echo "  cd web && docker compose up -d"
-echo ""
-echo "To deploy from registry:"
-echo "  REGISTRY=$REGISTRY TAG=$TAG docker compose -f docker-compose.prod.yml up -d"

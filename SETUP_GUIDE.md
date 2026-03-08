@@ -470,17 +470,6 @@ cd web
 REGISTRY=your-registry.azurecr.io ./build.sh --push --tag v1.0.0
 ```
 
-### Deploy from Registry
-
-```bash
-cd web
-
-# Pull and run from registry
-REGISTRY=your-registry.azurecr.io \
-TAG=v1.0.0 \
-docker compose -f docker-compose.prod.yml up -d
-```
-
 ### Production Checklist
 
 - [ ] HTML reports mounted or uploaded
@@ -489,8 +478,7 @@ docker compose -f docker-compose.prod.yml up -d
 - [ ] Enterprise standard prefix configured (if applicable)
 - [ ] Shared forest domain name updated (replaced `baseline.corp`)
 - [ ] Authentication configured (if needed)
-- [ ] Container registry accessible from deployment target
-- [ ] Ports 9845 (frontend) and 9846 (backend) available
+- [ ] Ports 80 (frontend) available
 - [ ] CORS origins in `main.py` updated for production URL
 
 ### Reverse Proxy (Optional)
