@@ -8,9 +8,14 @@
 
 ## Overview
 
-GPO Analyzer processes [GPOZaurr](https://github.com/EvotecIT/GPOZaurr) HTML reports and generates structured Excel reports and interactive web dashboards for GPO health assessment, optimization, migration planning, and impact analysis.
+GPO Analyzer processes [GPOZaurr](https://github.com/EvotecIT/GPOZaurr) HTML reports and delivers insights through two interfaces:
 
-It works at any scale — from a single AD domain to a multi-forest enterprise with dozens of operations.
+- **Python CLI** — Generates multi-tab Excel reports for offline analysis and stakeholder distribution
+- **Web Dashboard** — Full-stack React + FastAPI application with interactive dashboards, drill-down GPO details, file upload, Entra ID authentication, and Docker deployment
+
+Both interfaces share a single Python backbone (~6,700 lines) as the source of truth. The web layer is display-only — zero business logic duplication.
+
+Works at any scale — from a single AD domain to a multi-forest enterprise with dozens of operations.
 
 ---
 
@@ -106,6 +111,16 @@ python gpo_analyzer_v2_3_2.py --mode full --html-folder ./reports
 
 ### Web Interface (v3.3.0)
 
+Interactive browser-based dashboard built with React, TypeScript, Tailwind CSS, and FastAPI.
+
+**Features:**
+- Executive, Domain, and Migration dashboards with real-time data
+- Click-through GPO details with setting-level drill-down
+- HTML report upload via drag-and-drop
+- Excel export from any dashboard
+- Entra ID (Azure AD) authentication (optional)
+- Dockerized deployment (frontend on nginx, backend on uvicorn)
+
 ```bash
 cd web
 docker compose build --no-cache
@@ -113,6 +128,8 @@ docker compose up -d
 
 # Access at http://localhost:9845
 ```
+
+See [`web/README.md`](web/README.md) for full web interface documentation.
 
 ---
 
@@ -315,18 +332,6 @@ project/
         ├── Dockerfile
         └── src/
 ```
-
----
-
-## Version History
-
-| Version | Date | Changes |
-|---------|------|---------|
-| 2.3.3 | Jan 2026 | Migration Mode: all GPOs including zero-settings, enterprise standard drift detection, Web v3.3.0 |
-| 2.3.2 | Dec 2025 | Impact Mode, CLI downloads, Web v3.1.0 |
-| 2.3.1 | Dec 2025 | Enterprise standard / shared forest overlap split, column reordering |
-| 2.3.0 | Dec 2025 | Migration Mode complete |
-| 2.2.8 | Dec 2025 | Executive Mode polish, Links-Only detection |
 
 ---
 
