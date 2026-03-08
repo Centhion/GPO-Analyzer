@@ -171,6 +171,8 @@ export default function HelpPage() {
   const docTitles: Record<string, string> = {
     'MigrationReport_AnalysisGuide': 'Migration Report Analysis Guide',
     'MigrationReport_CheatSheet': 'Migration Report Quick Reference',
+    'OptimizationReport_AnalysisGuide': 'Optimization Report Analysis Guide',
+    'OptimizationReport_CheatSheet': 'Optimization Report Quick Reference',
   };
 
   const title = docTitles[docName || ''] || docName || 'Help Document';

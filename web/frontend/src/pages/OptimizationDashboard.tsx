@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
-import { Download, Info, ChevronDown, ChevronUp, HelpCircle, FileSpreadsheet } from 'lucide-react';
+import { Download, Info, ChevronDown, ChevronUp, HelpCircle, FileSpreadsheet, FileText } from 'lucide-react';
 import { TabNavigation } from '../components/common/TabNavigation';
 import { LoadingSpinner } from '../components/common/LoadingSpinner';
 import { MetricCard } from '../components/common/MetricCard';
@@ -838,6 +838,29 @@ export function OptimizationDashboard() {
           <strong>📊 What this shows:</strong> Displays operation-specific GPOs only (excludes enterprise standard policies). 
           Use for bucket analysis, migration readiness assessment, and GPO inventory. 
           GPO counts shown are <strong>non-enterprise-standard</strong> policies for this operation.
+        </div>
+
+        {/* Documentation Links */}
+        <div className="mt-3 flex items-center gap-4 text-sm">
+          <span className="text-gray-500">Analysis Guides:</span>
+          <a
+            href="/help/OptimizationReport_AnalysisGuide"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
+          >
+            <FileText className="h-4 w-4" />
+            Full Guide
+          </a>
+          <a
+            href="/help/OptimizationReport_CheatSheet"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 flex items-center gap-1 transition-colors"
+          >
+            <FileText className="h-4 w-4" />
+            Quick Reference
+          </a>
         </div>
       </div>
 
